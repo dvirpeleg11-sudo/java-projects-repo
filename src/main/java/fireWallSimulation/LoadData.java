@@ -18,7 +18,7 @@ public class LoadData {
             model = gson.fromJson(reader, RuleJsonModel.class);
 
         } catch (IOException e) {
-            e.printStackTrace();
+            System.err.println("Error while reading rules.json");
         }
     }
 }
