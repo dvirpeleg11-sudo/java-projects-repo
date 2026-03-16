@@ -8,7 +8,12 @@ public class Rule {
     private String action; // "ALLOW" or "BLOCK"
 
     public Rule(String protocol, Integer port, String srcIp, String action) {
-        this.protocol = protocol;
+        if (Protocols.isStringInProtocols(protocol)){
+            this.protocol = protocol;
+        }else{
+            this.protocol = null;
+        }
+
         this.port = port;
         this.srcIp = srcIp;
         this.action = action;

@@ -20,7 +20,7 @@ public class RuleEngine {
 
         }
 
-        return "ALLOW";
+        return LoadData.model.defaultPolicies;
 
     }
 

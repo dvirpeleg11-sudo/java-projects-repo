@@ -7,5 +7,6 @@ public class RuleJsonModel {
     public List<String> blockedProtocols;
     public List<Integer> blockedPorts;
     public List<String> blockedIps;
+    public String defaultPolicies;
 
 }

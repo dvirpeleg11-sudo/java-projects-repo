@@ -1,5 +1,6 @@
 {
   "blockedProtocols" : ["DHCP"],
   "blockedPorts" : [21, 23],
-  "blockedIps" : ["192.198.2.10"]
+  "blockedIps" : ["192.198.2.10"],
+  "defaultPolicies" : "BLOCK"
 }

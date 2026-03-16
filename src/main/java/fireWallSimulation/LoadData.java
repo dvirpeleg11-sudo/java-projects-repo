@@ -8,9 +8,9 @@ import com.google.gson.Gson;
 
 public class LoadData {
 
-    static RuleJsonModel model;
+    public static RuleJsonModel model;
 
-    static void load() throws FileNotFoundException {
+    public static void load() throws FileNotFoundException {
 
         try (Reader reader = new FileReader("rules.json")) {
 
