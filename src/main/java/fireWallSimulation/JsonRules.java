@@ -10,10 +10,26 @@ public class JsonRules {
         LoadData.load();
         RuleSet rules = new RuleSet();
 
+        // srcIp
+        for (String srcIp: LoadData.model.blockedIps){
+
+            Rule rule = new Rule(srcIp, null, null, null, "Blocked");
+            rules.addRule(rule);
+
+        }
+
+        // srcIp
+        for (String dstIp: LoadData.model.blockedIps){
+
+            Rule rule = new Rule(dstIp, null, null, null, "Blocked");
+            rules.addRule(rule);
+
+        }
+
         // protocols
         for (String protocol: LoadData.model.blockedProtocols){
 
-            Rule rule = new Rule(protocol, null, null, "Blocked");
+            Rule rule = new Rule(null, null, protocol, null, "Blocked");
             rules.addRule(rule);
 
         }
@@ -21,15 +37,7 @@ public class JsonRules {
         // ports
         for (int port: LoadData.model.blockedPorts){
 
-            Rule rule = new Rule(null, port, null, "Blocked");
-            rules.addRule(rule);
-
-        }
-
-        // srcIp
-        for (String srcIp: LoadData.model.blockedIps){
-
-            Rule rule = new Rule(null, null, srcIp, "Blocked");
+            Rule rule = new Rule(null, null, null, port, "Blocked");
             rules.addRule(rule);
 
         }

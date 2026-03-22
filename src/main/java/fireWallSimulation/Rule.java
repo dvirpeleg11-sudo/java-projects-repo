@@ -2,12 +2,16 @@ package fireWallSimulation;
 
 public class Rule {
 
+    private String srcIp;
+    private String dstIp;
     private String protocol;
     private Integer port;
-    private String srcIp;
     private String action; // "ALLOW" or "BLOCK"
 
-    public Rule(String protocol, Integer port, String srcIp, String action) {
+    public Rule(String srcIp, String dstIp, String protocol, Integer dstPort, String action) {
+        this.srcIp = srcIp;
+        this.dstIp = dstIp;
+
         if (Protocols.isStringInProtocols(protocol)){
             this.protocol = protocol;
         }else{
@@ -15,13 +19,13 @@ public class Rule {
         }
 
         this.port = port;
-        this.srcIp = srcIp;
         this.action = action;
     }
 
     // Getters
+    public String getSrcIp() { return srcIp; }
+    public String getDstIp() { return dstIp; }
     public String getProtocol() { return protocol; }
     public Integer getPort() { return port; }
-    public String getSrcIp() { return srcIp; }
     public String getAction() { return action; }
 }
