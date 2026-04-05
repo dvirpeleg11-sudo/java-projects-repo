@@ -18,7 +18,7 @@ public class Rule {
             this.protocol = null;
         }
 
-        this.port = port;
+        this.port = dstPort;
         this.action = action;
     }
 

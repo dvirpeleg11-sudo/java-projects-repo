@@ -4,14 +4,13 @@ import java.io.FileNotFoundException;
 
 public class JsonRules {
 
-    public static void createRules() throws FileNotFoundException {
+    public static RuleSet createRules() throws FileNotFoundException {
 
-        // the reason for throws "FileNotFoundException"
         LoadData.load();
         RuleSet rules = new RuleSet();
 
         // srcIp
-        for (String srcIp: LoadData.model.blockedIps){
+        for (String srcIp: LoadData.getModel().blockedIps){
 
             Rule rule = new Rule(srcIp, null, null, null, "Blocked");
             rules.addRule(rule);
@@ -19,7 +18,7 @@ public class JsonRules {
         }
 
         // srcIp
-        for (String dstIp: LoadData.model.blockedIps){
+        for (String dstIp: LoadData.getModel().blockedIps){
 
             Rule rule = new Rule(dstIp, null, null, null, "Blocked");
             rules.addRule(rule);
@@ -27,7 +26,7 @@ public class JsonRules {
         }
 
         // protocols
-        for (String protocol: LoadData.model.blockedProtocols){
+        for (String protocol: LoadData.getModel().blockedProtocols){
 
             Rule rule = new Rule(null, null, protocol, null, "Blocked");
             rules.addRule(rule);
@@ -35,12 +34,14 @@ public class JsonRules {
         }
 
         // ports
-        for (int port: LoadData.model.blockedPorts){
+        for (int port: LoadData.getModel().blockedPorts){
 
             Rule rule = new Rule(null, null, null, port, "Blocked");
             rules.addRule(rule);
 
         }
+
+        return rules;
 
     }
 

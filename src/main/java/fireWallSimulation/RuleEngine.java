@@ -1,5 +1,6 @@
 package fireWallSimulation;
 
+import java.io.FileNotFoundException;
 import java.util.List;
 
 public class RuleEngine {
@@ -10,7 +11,7 @@ public class RuleEngine {
     static private final int[] commonProtocols = new int[Protocols.values().length];
     static private String action = "";
 
-    public static String checkPacket(Packet packet, List<Rule> rules) {
+    public static void checkPacket(Packet packet, List<Rule> rules) throws FileNotFoundException {
 
         for (Rule rule : rules) {
 
@@ -29,7 +30,8 @@ public class RuleEngine {
         }
 
         if (action.isEmpty()){
-            action = LoadData.model.defaultPolicies;
+
+            action = LoadData.getModel().defaultPolicies;
         }
 
         // updating statistics
@@ -43,7 +45,6 @@ public class RuleEngine {
         }
 
         System.out.printf("[" + action + "] src=" + packet.getSrcIp() + " dst=" + packet.getDstIp() + "port=" + packet.getDstPort() + "protocol=" + packet.getProtocol());
-        return action;
 
     }
 

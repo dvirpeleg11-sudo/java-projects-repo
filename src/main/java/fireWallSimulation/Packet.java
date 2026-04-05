@@ -16,7 +16,7 @@ public class Packet {
         this.dstPort = dstPort;
     }
 
-    public Packet createRandomPacket() {
+    public static Packet createRandomPacket() {
 
         Random rand = new Random();
 
@@ -25,23 +25,23 @@ public class Packet {
         int thirdOctet = rand.nextInt(256);
         int fourthOctet = rand.nextInt(256);
 
-        srcIp = firstOctet + "." +  secondOctet + "." + thirdOctet;
+        String randSrcIp = firstOctet + "." +  secondOctet + "." + thirdOctet + "." + fourthOctet;
 
         firstOctet = rand.nextInt(256);
         secondOctet = rand.nextInt(256);
         thirdOctet = rand.nextInt(256);
         fourthOctet = rand.nextInt(256);
 
-        dstIp = firstOctet + "." +  secondOctet + "." + thirdOctet;
+        String randDstIp = firstOctet + "." +  secondOctet + "." + thirdOctet + "." + fourthOctet;
 
         Protocols[] protocols = Protocols.values();
         int randomIndex = rand.nextInt(protocols.length);
 
-        protocol = protocols[randomIndex].name();
+        String randProtocol = protocols[randomIndex].name();
 
-        dstPort = rand.nextInt(65535);
+        int randDstPort = rand.nextInt(65535);
 
-        return new Packet(srcIp, dstIp, protocol, dstPort);
+        return new Packet(randSrcIp, randDstIp, randProtocol, randDstPort);
 
     }
 

@@ -8,7 +8,7 @@ import com.google.gson.Gson;
 
 public class LoadData {
 
-    public static RuleJsonModel model;
+    private static RuleJsonModel model;
 
     public static void load() throws FileNotFoundException {
 
@@ -21,4 +21,10 @@ public class LoadData {
             System.err.println("Error while reading rules.json");
         }
     }
+
+    public static RuleJsonModel getModel() throws FileNotFoundException {
+        LoadData.load();
+        return model;
+    }
+
 }

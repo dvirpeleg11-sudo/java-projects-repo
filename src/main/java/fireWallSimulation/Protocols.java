@@ -38,9 +38,7 @@ public enum Protocols {
         try {
             Protocols.valueOf(value);
             return true;
-        } catch (IllegalArgumentException e) {
-            return false;
-        } catch (NullPointerException e) {
+        } catch (IllegalArgumentException | NullPointerException e) {
             return false;
         }
     }

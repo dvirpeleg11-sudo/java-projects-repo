@@ -29,4 +29,10 @@ public class RuleSet {
 
     }
 
+    public void removeRule(Rule rule){
+
+        rules.remove(rule);
+
+    }
+
 }
